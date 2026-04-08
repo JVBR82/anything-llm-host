@@ -567,7 +567,7 @@ function workspaceEndpoints(app) {
     "/workspace/:slug/update-pin",
     [
       validatedRequest,
-      flexUserRoleValid([ROLES.admin, ROLES.manager]),
+      flexUserRoleValid([ROLES.admin, ROLES.manager, ROLES.host]),
       validWorkspaceSlug,
     ],
     async (request, response) => {
@@ -679,7 +679,7 @@ function workspaceEndpoints(app) {
     "/workspace/:slug/upload-pfp",
     [
       validatedRequest,
-      flexUserRoleValid([ROLES.admin, ROLES.manager]),
+      flexUserRoleValid([ROLES.admin, ROLES.manager, ROLES.host]),
       handlePfpUpload,
     ],
     async function (request, response) {
@@ -727,7 +727,7 @@ function workspaceEndpoints(app) {
 
   app.delete(
     "/workspace/:slug/remove-pfp",
-    [validatedRequest, flexUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, flexUserRoleValid([ROLES.admin, ROLES.manager, ROLES.host])],
     async function (request, response) {
       try {
         const { slug } = request.params;
