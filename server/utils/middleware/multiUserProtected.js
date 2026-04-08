@@ -3,6 +3,7 @@ const { userFromSession } = require("../http");
 const ROLES = {
   all: "<all>",
   admin: "admin",
+  host: "host",
   manager: "manager",
   default: "default",
 };
