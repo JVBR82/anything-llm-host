@@ -166,7 +166,7 @@ export function SidebarMobileHeader() {
                   style={{ objectFit: "contain" }}
                 />
               </div>
-              {(!user || user?.role !== "default") && (
+              {(!user || !["default", "host"].includes(user?.role)) && (
                 <div className="flex gap-x-2 items-center text-slate-500 shink-0">
                   <SettingsButton />
                 </div>
@@ -178,7 +178,7 @@ export function SidebarMobileHeader() {
               <div className="h-auto md:sidebar-items">
                 <div className=" flex flex-col gap-y-4 overflow-y-scroll no-scroll pb-[60px]">
                   <div className="flex gap-x-2 items-center justify-between">
-                    {(!user || user?.role !== "default") && (
+                    {(!user || !["default", "host"].includes(user?.role)) && (
                       <button
                         onClick={showNewWsModal}
                         className="flex flex-grow w-[75%] h-[44px] gap-x-2 py-[5px] px-4 bg-white rounded-lg text-sidebar justify-center items-center hover:bg-opacity-80 transition-all duration-300"

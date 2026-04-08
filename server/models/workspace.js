@@ -338,7 +338,7 @@ const Workspace = {
     limit = null,
     orderBy = null
   ) {
-    if ([ROLES.admin, ROLES.manager, ROLES.host].includes(user.role))
+    if ([ROLES.admin, ROLES.manager].includes(user.role))
       return await this.where(clause, limit, orderBy);
 
     try {
