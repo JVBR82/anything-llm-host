@@ -5,6 +5,7 @@ import { ContextWrapper } from "@/AuthContext";
 import PrivateRoute, {
   AdminRoute,
   ManagerRoute,
+  HostRoute,
 } from "@/components/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -108,7 +109,7 @@ export default function App() {
 
                   <Route
                     path="/workspace/:slug/settings/:tab"
-                    element={<ManagerRoute Component={WorkspaceSettings} />}
+                    element={<HostRoute Component={WorkspaceSettings} />}
                   />
                   <Route
                     path="/workspace/:slug"

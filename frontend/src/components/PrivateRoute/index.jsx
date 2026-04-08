@@ -123,6 +123,30 @@ export function ManagerRoute({ Component }) {
   }
 
   const user = userFromStorage();
+  return isAuthd && (["manager", "admin"].includes(user?.role) || !multiUserMode) ? (
+    <KeyboardShortcutWrapper>
+      <UserMenu>
+        <Component />
+      </UserMenu>
+    </KeyboardShortcutWrapper>
+  ) : (
+    <Navigate to={paths.home()} />
+  );
+}
+
+
+// Allows manager, admin and host to access the route and if in single user mode,
+// allows all users to access the route
+export function HostRoute({ Component }) {
+  const { isAuthd, shouldRedirectToOnboarding, multiUserMode } =
+    useIsAuthenticated();
+  if (isAuthd === null) return <FullScreenLoader />;
+
+  if (shouldRedirectToOnboarding) {
+    return <Navigate to={paths.onboarding.home()} />;
+  }
+
+  const user = userFromStorage();
   return isAuthd && (user?.role !== "default" || !multiUserMode) ? (
     <KeyboardShortcutWrapper>
       <UserMenu>

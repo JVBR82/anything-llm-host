@@ -115,6 +115,11 @@ const ROLE_HINT = {
     "Can only send chats with workspaces they are added to by admin or managers.",
     "Cannot modify any settings at all.",
   ],
+  host: [
+    "Can view, and edit any workspaces and modify workspace-specific settings.",
+    "Cannot create, update and invite new users to the instance.",
+    "Cannot modify LLM, vectorDB, embedding, or other connections.",
+  ],
   manager: [
     "Can view, create, and delete any workspaces and modify workspace-specific settings.",
     "Can create, update and invite new users to the instance.",
