@@ -223,7 +223,7 @@ function adminEndpoints(app) {
 
   app.get(
     "/admin/workspaces",
-    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager, ROLES.host])],
     async (_request, response) => {
       try {
         const workspaces = await Workspace.whereWithUsers();
